@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
-import styles from "./Navbar.module.css";
+import styles from "./navbar.module.css";
 
 const montserrat = Montserrat({
   weight: "400",
