@@ -1,6 +1,9 @@
 {
   "name": "chat_app_next",
   "version": "0.1.0",
+  "author": "Faiz Ul Hassan",
+  "email": "faizulhassan@747284@gmail.com",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
