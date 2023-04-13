@@ -1,0 +1,16 @@
+.landing_div{
+  height: 700px;
+  width: 100%;
+}
+.landing_div_inner{
+max-width: 700px;
+  margin: 200px auto;
+}
+.landing_div_heading{
+  text-align: center;
+  font-size: 72px;
+}
+.landing_div_paragraph{
+  text-align: center;
+  font-size: 16px;
+}
