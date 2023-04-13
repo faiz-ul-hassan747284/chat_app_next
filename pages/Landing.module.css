@@ -1,0 +1,12 @@
+.landing_div{
+  height: 700px;
+  width: 100%;
+}
+.landing_div_inner{
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+.landing_div_heading{
+  font-size: 72px;
+}
