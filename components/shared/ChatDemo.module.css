@@ -1,0 +1,44 @@
+.chat_room_div {
+  margin-top: 50px;
+  padding: 40px;
+  background-color: white;
+  height: 400px;
+  color: #4f4f4f;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.button {
+  text-align: center;
+  margin: auto;
+  width: 200px;
+  border: 1px solid #4f4f4f;
+  border-color: #4f4f4f;
+  padding: 10px;
+  margin-top: 40%;
+  margin-bottom: 0px;
+  background-color: aliceblue;
+}
+
+.typing_animation {
+  display: inline-block;
+  position: relative;
+  font-size: 24px;
+}
+
+.typing_animation .text {
+  display: inline-block;
+  animation: typing 2s steps(12), blink 0.5s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 5px;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
