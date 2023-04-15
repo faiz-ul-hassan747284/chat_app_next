@@ -1,4 +1,5 @@
 import style from "./Landing.module.css";
+import ChatDemo from "./ChatDemo";
 function Landing() {
   return (
     <div className={style.landing_div}>
@@ -10,6 +11,7 @@ function Landing() {
           Try our new chat app! With our app, you can easily send messages, make
           voice and video calls, share photos and videos, and much more.
         </p>
+        <ChatDemo/>
       </div>
     </div>
   );
