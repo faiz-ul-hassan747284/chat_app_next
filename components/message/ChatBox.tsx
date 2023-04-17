@@ -1,7 +1,7 @@
 import { messagesData } from "@/lib/types";
 import style from "./ChatBox.module.css";
 
-import Message from "./message";
+import Message from "./Message";
 
 function ChatBox({ messages }: { messages: messagesData }) {
   return (
