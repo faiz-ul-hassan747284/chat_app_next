@@ -1,10 +1,26 @@
-.message{
+.message {
+  position: relative;
   max-width: 400px;
   padding: 10px;
   border-radius: 10px;
-  margin: 5px;
+  margin: 30px;
   background-color: white;
 }
+
+.message::before {
+  content: "";
+  position: absolute;
+  bottom: 42px;
+  left: -10px;
+  border: 10px solid transparent;
+  border-top-color: white;
+  border-bottom: 0;
+  border-right: 0;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+}
+
 .author{
   text-align: right;
   font-size: 12px;
