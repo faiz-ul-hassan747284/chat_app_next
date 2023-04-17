@@ -1,4 +1,4 @@
-type messageData = {
+type messagesData = {
   message: {
     _id: string;
     message: string;
@@ -7,4 +7,11 @@ type messageData = {
   }[];
   success: boolean;
 };
-export type { messageData };
+
+type messageData={
+  _id: string;
+  message: string;
+  created_at: string;
+  user: string;
+}
+export type { messagesData, messageData };
