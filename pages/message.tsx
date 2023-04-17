@@ -13,7 +13,7 @@ function Message({ data }: { data: messageData }) {
 export default Message;
 
 export async function getServerSideProps() {
-  const res = await fetch(`${process.env.VERCEL_URL}api/messages`);
+  const res = await fetch(`${process.env.VERCEL_URL}/api/messages`);
   const data: messageData = await res.json();
   return {
     props: { data }, // will be passed to the page component as props
