@@ -1,5 +1,5 @@
 import { messageData } from "@/lib/types";
-import style from "./Message.module.css";
+import style from "./MessageComponent.module.css";
 
 function Message({ data }: { data: messageData }) {
   function getRandomColor() {
