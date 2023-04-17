@@ -10,6 +10,8 @@ body {
 	color: white;
 	animation: gradient 15s ease infinite;
 	height: 100vh;
+	padding-right: 20px;
+	padding-left: 20px;
 }
 
 @keyframes gradient {

@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <div className={`${montserrat.className} ${styles.navbar}`}>
       <div className={styles.navbar_flex}>
-      <p className={styles.navbar_text} >Chat App</p>
+      <Link className={styles.navbar_text} href='/message'>  Chat App </Link>
       <Link className={styles.navbar_text} href='https://github.com/faiz-ul-hassan747284'> About me </Link>
       </div>
     </div>
