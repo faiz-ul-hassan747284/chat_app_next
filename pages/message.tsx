@@ -1,6 +1,7 @@
 import Navbar from "@/components/shared/Navbar";
 import ChatBox from "@/components/message/ChatBox";
-function Message({data}) {
+import { messageData } from "@/lib/types";
+function Message({data}: {data:messageData}) {
   return (
     <main>
       <Navbar />
@@ -13,7 +14,7 @@ export default Message;
 
 export async function getServerSideProps() {
   const res = await fetch(`${process.env.API_BASE}api/messages`);
-  const data = await res.json();
+  const data: messageData  = await res.json();
   return {
     props: {data}, // will be passed to the page component as props
   }
