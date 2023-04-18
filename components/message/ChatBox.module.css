@@ -1,0 +1,16 @@
+.chat_box_wrapper{
+  padding: 20px;
+  margin: auto;
+}
+.chat_box{
+  max-height: 500px;
+  overflow-y: auto;
+  max-width: 700px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  margin-top: 100px;
+  margin: 50px auto;
+  color: #4f4f4f;
+  position: relative;
+}
