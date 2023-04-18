@@ -1,30 +1,29 @@
-import { BsFillSendFill } from "react-icons/bs";
-
 import { messagesData } from "@/lib/types";
 import style from "./ChatBox.module.css";
-
 import Message from "./MessageComponent";
+import MessageForm from "./MessageForm";
+import { useEffect, useRef } from "react";
+interface Props {
+  messages: messagesData;
+}
 
-function ChatBox({ messages }: { messages: messagesData }) {
+function ChatBox({ messages }: Props) {
+  const divRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (divRef.current) {
+      divRef.current.scrollTop = divRef.current.scrollHeight;
+    }
+  }, [messages]);
+
   return (
     <div className={style.chat_box_wrapper}>
-      <div className={style.chat_box}>
-        <div>
-          {messages.message.map((message, i) => (
-            <Message key={i} data={message} />
-          ))}
-        </div>
-        <div className={style.message_form}>
-          <input
-            className={style.message_input}
-            type="text"
-            placeholder="Message..."
-          />
-          <button className={style.message_input_button}>
-            <BsFillSendFill />
-          </button>
-        </div>
+      <div ref={divRef} className={style.chat_box}>
+        {messages.message.map((message, i) => (
+          <Message key={i} data={message} />
+        ))}
       </div>
+      <MessageForm/>
     </div>
   );
 }
