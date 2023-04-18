@@ -26,28 +26,29 @@ async function getMessages(req: NextApiRequest, res: NextApiResponse) {
 }
 
 async function addMessage(req: NextApiRequest, res: NextApiResponse) {
-    try {
-      // connect to the database
-      let { db } = await connectToDatabase();
-      // add the post
-      await db.collection("messages").insertOne(
+  try {
+    // connect to the database
+    let { db } = await connectToDatabase();
+    // add the post
+    await db
+      .collection("messages")
+      .insertOne(
         { ...req.body, created_at: new Date() },
         { $setOnInsert: { created_at: new Date() } }
       );
-      // return a message
-      return res.json({
-        message: "Message added successfully",
-        success: true,
-      });
-    } catch (error: any) {
-      // return an error
-      return res.json({
-        message: new Error(error).message,
-        success: false,
-      });
-    }
+    // return a message
+    return res.json({
+      message: "Message added successfully",
+      success: true,
+    });
+  } catch (error: any) {
+    // return an error
+    return res.json({
+      message: new Error(error).message,
+      success: false,
+    });
   }
-
+}
 
 export default async function handler(
   req: NextApiRequest,

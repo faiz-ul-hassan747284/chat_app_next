@@ -1,6 +1,10 @@
 import UserForm from "@/components/user/UserForm";
 function User() {
-  return ( <><UserForm/></> );
+  return (
+    <div>
+      <UserForm />
+    </div>
+  );
 }
 
 export default User;
