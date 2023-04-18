@@ -1,10 +1,8 @@
-import Navbar from "@/components/shared/Navbar";
 import ChatBox from "@/components/message/ChatBox";
 import { messagesData } from "@/lib/types";
 function Message({ data }: { data: messagesData }) {
   return (
     <main>
-      <Navbar />
       <ChatBox messages={data} />
     </main>
   );
