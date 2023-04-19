@@ -10,7 +10,7 @@
 .message::before {
   content: "";
   position: absolute;
-  bottom: 42px;
+  bottom: 47px;
   left: -10px;
   border: 10px solid transparent;
   border-top-color: white;
@@ -21,7 +21,41 @@
   height: 20px;
 }
 
+.self_message {
+  position: relative;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 30px;
+  margin-left: 200px;
+  background-color: white;
+}
+
+.self_message::before {
+  content: "";
+  position: absolute;
+  bottom: 47px;
+  right: -10px;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid white;
+  display: inline-block;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+}
+
 .author{
   text-align: right;
   font-size: 12px;
+}
+.time{
+  text-align: right;
+  font-size: 12px;
+}
+.info{
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
 }
