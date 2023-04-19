@@ -1,18 +1,20 @@
-import {useState, KeyboardEvent } from "react";
+import {useState, useContext, KeyboardEvent } from "react";
 import { useRouter } from 'next/router';
 import { BsFillSendFill } from "react-icons/bs";
 
 import style from './MessageForm.module.css'
+import { UserContext } from "@/context/UserContext";
 
 function MessageForm() {
   const [message, setMessage] = useState("");
   const router = useRouter();
+  const {userName} = useContext(UserContext)
   function sendMessage() {
     fetch(`/api/messages`, {
       method: "POST",
       body: JSON.stringify({
         message,
-        user: "test",
+        user: userName,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
