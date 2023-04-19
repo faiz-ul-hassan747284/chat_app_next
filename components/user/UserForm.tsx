@@ -8,13 +8,29 @@ function UserForm() {
   const [name, setName] = useState("");
   const { setUserName } = useContext(UserContext);
   const router = useRouter()
+  function sendUser() {
+    fetch(`/api/users`, {
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then(() => {
+        setUserName(name)
+      router.back()
+      })
+      .catch((err) => console.log(err.message));
+  }
   function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
     setName(e.target.value);
   }
   function handleNameKeyDown(e: KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter" && name.trim()) {
-      setUserName(name)
-      router.back()
+      sendUser()
     }}
   return (
     <div className={style.user_form_wrapper}>
