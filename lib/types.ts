@@ -14,4 +14,20 @@ type messageData = {
   created_at: string;
   user: string;
 };
-export type { messagesData, messageData };
+type usersData = {
+  users: {
+    _id: string;
+    name: string;
+    created_at: string;
+    color: string;
+  }[];
+  success: boolean;
+};
+
+type userData = {
+  _id: string;
+  name: string;
+  created_at: string;
+  color: string;
+};
+export type { messagesData, messageData, usersData, userData };
