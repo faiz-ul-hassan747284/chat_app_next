@@ -18,13 +18,15 @@ export const UserContextProvider = ({ children }: UserContextProviderProps) => {
   const [userName, setUserName] = useState("");
   useEffect(() => {
     const localData = localStorage.getItem("userName");
-    if (localData) {
+    const localTtl = localStorage.getItem("ttl");
+    if (localData && localTtl && parseInt(localTtl) > Date.now()) {
       setUserName(localData);
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem("userName", userName);
+    localStorage.setItem("ttl", (Date.now() + 30 * 60 * 1000).toString());
   }, [userName]);
 
   return (
@@ -33,3 +35,4 @@ export const UserContextProvider = ({ children }: UserContextProviderProps) => {
     </UserContext.Provider>
   );
 };
+
