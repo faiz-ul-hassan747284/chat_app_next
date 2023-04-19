@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 type UserContextType = {
   userName: string;
@@ -16,6 +16,16 @@ export const UserContext = createContext<UserContextType>({
 
 export const UserContextProvider = ({ children }: UserContextProviderProps) => {
   const [userName, setUserName] = useState("");
+  useEffect(() => {
+    const localData = localStorage.getItem("userName");
+    if (localData) {
+      setUserName(localData);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("userName", userName);
+  }, [userName]);
 
   return (
     <UserContext.Provider value={{ userName, setUserName }}>
