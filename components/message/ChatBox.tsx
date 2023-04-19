@@ -4,12 +4,12 @@ import Message from "./MessageComponent";
 import MessageForm from "./MessageForm";
 import { useEffect, useRef } from "react";
 interface Props {
-  messages: messagesData;
+  messages: messagesData,
+  colorObj: {}
 }
 
-function ChatBox({ messages }: Props) {
+function ChatBox({ messages, colorObj }: Props) {
   const divRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     if (divRef.current) {
       divRef.current.scrollTop = divRef.current.scrollHeight;
@@ -20,7 +20,7 @@ function ChatBox({ messages }: Props) {
     <div className={style.chat_box_wrapper}>
       <div ref={divRef} className={style.chat_box}>
         {messages.message.map((message, i) => (
-          <Message key={i} data={message} />
+          <Message key={i} data={message} colorObj={colorObj} />
         ))}
       </div>
       <MessageForm/>
