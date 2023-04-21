@@ -1,7 +1,26 @@
 import ChatBox from "@/components/message/ChatBox";
 import { messagesData, usersData } from "@/lib/types";
+import Pusher from 'pusher-js';
+import { useEffect } from "react";
+import { Router, useRouter } from "next/router";
 
 function Message({ data, colorObj }: { data: messagesData, colorObj:{} }) {
+  const router = useRouter()
+  useEffect(() => {
+      const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY!, {
+        cluster: process.env.NEXT_PUBLIC_CLUSTER!,
+      });
+      const channel = pusher.subscribe('global');
+      channel.bind('new-message', (mdata: any) => {
+        router.push('')
+      });
+      return () => {
+        channel.unbind_all();
+        channel.unsubscribe();
+        pusher.disconnect();
+      };
+    }, []);
+
   return (
     <main>
       <ChatBox messages={data} colorObj={colorObj} />

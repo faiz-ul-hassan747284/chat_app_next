@@ -22,7 +22,7 @@ function MessageForm() {
     })
       .then((response) => response.json())
       .then(() => {
-        router.replace(router.asPath);
+
         setMessage("");
       })
       .catch((err) => console.log(err.message));
