@@ -1,6 +1,23 @@
+import { useEffect,useState } from "react";
 import ChatBox from "@/components/message/ChatBox";
 import { messagesData, usersData } from "@/lib/types";
+import io from 'Socket.IO-client'
+
 function Message({ data, colorObj }: { data: messagesData, colorObj:{} }) {
+  const [socket, setSocket] = useState<any>(null);
+
+  useEffect(() => {
+    const socketInitializer = async () => {
+      await fetch('/api/socket');
+      const newSocket = io();
+      setSocket(newSocket);
+      newSocket.on('connect', () => {
+        console.log('connected');
+      });
+    };
+    socketInitializer();
+  }, []);
+
   return (
     <main>
       <ChatBox messages={data} colorObj={colorObj} />
