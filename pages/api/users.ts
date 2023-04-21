@@ -36,20 +36,16 @@ async function addUsers(req: NextApiRequest, res: NextApiResponse) {
       return res
         .status(409)
         .json({ message: "User with this name already exists", success: true });
-    const result = await db
-      .collection("users")
-      .insertOne({
-        ...body,
-        created_at: new Date(),
-        color: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
-      });
-    return res
-      .status(201)
-      .json({
-        message: "User added successfully",
-        success: true,
-        user_id: result.insertedId,
-      });
+    const result = await db.collection("users").insertOne({
+      ...body,
+      created_at: new Date(),
+      color: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
+    });
+    return res.status(201).json({
+      message: "User added successfully",
+      success: true,
+      user_id: result.insertedId,
+    });
   } catch (error: any) {
     console.error(error);
     return res

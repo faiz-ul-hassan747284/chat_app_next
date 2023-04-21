@@ -21,7 +21,7 @@ function UserForm() {
       .then((response) => response.json())
       .then(() => {
         setUserName(name)
-      router.back()
+      router.push('/')
       })
       .catch((err) => console.log(err.message));
   }

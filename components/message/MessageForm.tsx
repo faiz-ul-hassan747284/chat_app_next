@@ -9,12 +9,17 @@ function MessageForm() {
   const [message, setMessage] = useState("");
   const router = useRouter();
   const {userName} = useContext(UserContext)
+  function setChannel(){
+    const {channel} = router.query
+    return channel ??'global'
+  }
   function sendMessage() {
     fetch(`/api/messages`, {
       method: "POST",
       body: JSON.stringify({
         message,
         user: userName,
+        channel: setChannel(),
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -22,7 +27,6 @@ function MessageForm() {
     })
       .then((response) => response.json())
       .then(() => {
-
         setMessage("");
       })
       .catch((err) => console.log(err.message));
