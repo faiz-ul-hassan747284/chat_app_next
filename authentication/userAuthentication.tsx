@@ -11,7 +11,9 @@ function UserAuthentication({ children }: { children: React.ReactElement }) {
     if (!userName && router.pathname !== "/") {
       router.push("/user");
     }
-  }, [userName, router.pathname]);
+    if (userName && router.pathname==='/user')
+      router.back()
+  }, [userName, router.pathname, router]);
 
   return children;
 }
