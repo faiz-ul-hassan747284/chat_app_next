@@ -1,5 +1,6 @@
 import ChatBox from "@/components/message/ChatBox";
 import { messagesData, usersData } from "@/lib/types";
+
 function Message({ data, colorObj }: { data: messagesData, colorObj:{} }) {
   return (
     <main>
