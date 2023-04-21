@@ -3,6 +3,7 @@ type messagesData = {
     _id: string;
     message: string;
     created_at: string;
+    channel: string;
     user: string;
   }[];
   success: boolean;
@@ -12,6 +13,7 @@ type messageData = {
   _id: string;
   message: string;
   created_at: string;
+  channel: string;
   user: string;
 };
 type usersData = {

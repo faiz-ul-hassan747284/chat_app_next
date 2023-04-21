@@ -14,10 +14,12 @@ async function getMessages(req: NextApiRequest, res: NextApiResponse) {
   try {
     // connect to the database
     const { db } = await connectToDatabase();
+    const {channel} = req.query
+    const query = channel?{channel: channel}:{ $or: [ { channel: 'global' }, { channel: null } ] }
     // fetch the messages
     const messages = await db
       .collection("messages")
-      .find({})
+      .find(query)
       .sort({ published: -1 })
       .toArray();
     // return the messages
@@ -45,7 +47,7 @@ async function addMessage(req: NextApiRequest, res: NextApiResponse) {
         { ...req.body, created_at: new Date() },
         { $setOnInsert: { created_at: new Date() } }
       );
-    await pusher.trigger("global", "new-message", {
+    await pusher.trigger(req.body.channel, "new-message", {
       req: req.body,
     });
     // return a message
