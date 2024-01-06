@@ -10,6 +10,7 @@ interface Props {
 
 function ChatBox({ messages, colorObj }: Props) {
   const divRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (divRef.current) {
       divRef.current.scrollTop = divRef.current.scrollHeight;

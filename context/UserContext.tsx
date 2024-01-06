@@ -11,12 +11,13 @@ type UserContextProviderProps = {
 
 export const UserContext = createContext<UserContextType>({
   userName: "",
-  setUserName: (name:string) => {},
+  setUserName: (name:string) => name,
 });
 
 export const UserContextProvider = ({ children }: UserContextProviderProps) => {
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState<string>("");
   useEffect(() => {
+
     const localData = localStorage.getItem("userName");
     const localTtl = localStorage.getItem("ttl");
     if (localData && localTtl && parseInt(localTtl) > Date.now()) {

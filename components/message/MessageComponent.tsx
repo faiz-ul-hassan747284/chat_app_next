@@ -5,9 +5,11 @@ import { UserContext } from "@/context/UserContext";
 function Message({ data, colorObj }: { data: messageData, colorObj: {[key: string]: string} }) {
   const created_at = new Date(data.created_at)
   const {userName} = useContext(UserContext)
+
   function getUserColor(user: string) {
     return user in colorObj ? colorObj[user] : `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   }
+
   return (
     <div className={userName===data.user?style.self_message: style.message}>
       <div className={style.info}>
