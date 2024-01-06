@@ -18,11 +18,11 @@ function Navbar() {
           <Link className={styles.navbar_text} href='/message'>  Start Message </Link>
         </div>
 
-        {userName === '' ? (
+        {/* {userName === '' ? (
           <Link className={styles.navbar_text} href='/message'>  Log-in </Link>
         ) : (
           <Link href='/' onClick={() => setUserName('')} className={styles.navbar_text} >  Log-Out </Link>
-        )}
+        )} */}
 
       </div>
     </div>
