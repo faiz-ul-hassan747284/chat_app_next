@@ -15,7 +15,6 @@ function Navbar() {
       <div className={styles.navbar_flex}>
         <div>
           <Link className={styles.navbar_text} href='#'>  Community Talk </Link>
-          <Link className={styles.navbar_text} href='#'>  Start Message </Link>
         </div>
 
         {/* {userName === '' ? (
